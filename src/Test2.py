@@ -20,7 +20,7 @@ print(band)
 tile, mask = reader.tile(dataset, 852, 418, 10, tilesize=1024)
 
 min = 0
-max = 60
+max = 405
 
 
 tile1 = (tile[0]-min)/max*255

@@ -1,0 +1,14 @@
+rasterio==1.1.4
+rio_color==1.0.0
+Flask==1.1.2
+numexpr==2.7.1
+affine==2.3.0
+rio_toa==0.3.0
+scipy==1.4.1
+boto3==1.13.16
+mercantile==1.1.4
+numpy==1.18.3
+matplotlib==3.2.1
+GDAL==3.0.4
+ogr==0.12.1
+PyNomaly==0.3.3

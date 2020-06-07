@@ -10,7 +10,8 @@ import numpy as np
 tifPath = "d:\\data\\spacenet\\mosaic_3band\\013022223133.tif"
 tifPath1 = "d:\\data\\3010\\1_1.tif"
 
-with rasterio.open(tifPath1) as src:
+tifPath2 = "https://landsat-pds.s3.amazonaws.com/c1/L8/122/034/LC08_L1TP_122034_20200422_20200508_01_T1/LC08_L1TP_122034_20200422_20200508_01_T1_B1.TIF"
+with rasterio.open(tifPath2) as src:
     print(src.bounds)
     tiles = mercantile.tiles(
         src.bounds.left, src.bounds.bottom, src.bounds.right, src.bounds.top, 10)
@@ -25,13 +26,13 @@ tile, mask = cogeo.tile(
     21,
     tilesize=256
 )
-
+"""
 
 tile, mask = cogeo.tile(
-    tifPath1,  # "http://127.0.0.1:5500/mosaic_3band/013022223133.tif",
-    3407,
-    1672,
-    12,
+    tifPath2,  # "http://127.0.0.1:5500/mosaic_3band/013022223133.tif",
+    1023,
+    107,
+    10,
     tilesize=256
 )
 
@@ -41,7 +42,7 @@ with open("my.png", "wb") as f:
     f.write(buffer)
 
 print(tile)
-
+"""
 
 dataset = rasterio.open(tifPath1)
 

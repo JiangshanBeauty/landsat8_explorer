@@ -70,6 +70,8 @@ with open(dataPath, "r") as newFile:
         acquisition_date = dataDict["acquisitionDate"]
         path = int(dataDict["path"])
         row = int(dataDict["row"])
+
+        collection_category = dataDict["COLLECTION_CATEGORY"]
         minLong = min([upperLeftCornerLongitude, lowerLeftCornerLongitude,
                        upperRightCornerLongitude, lowerRightCornerLongitude])
         maxlong = max([upperLeftCornerLongitude, lowerLeftCornerLongitude,
@@ -108,8 +110,8 @@ with open(dataPath, "r") as newFile:
             geom = geom1.Union(geom2)
             geomString = geom.ExportToWkt()
 
-        sql = "insert into landsat8(id,geom,content,cloud_cover,product_id,acquisition_date,path,row) values({},ST_GeomFromText('{}',4326),'{}',{},'{}','{}',{},{})".format(
-            "nextval('meta_id')", geomString, jsonData, cloudCover, product_id, acquisition_date, path, row)
+        sql = "insert into landsat8(id,geom,content,cloud_cover,product_id,acquisition_date,path,row,collection_category) values({},ST_GeomFromText('{}',4326),'{}',{},'{}','{}',{},{},'{}')".format(
+            "nextval('meta_id')", geomString, jsonData, cloudCover, product_id, acquisition_date, path, row, collection_category)
         cursor.execute(sql)
         # print(sql)
         count += 1

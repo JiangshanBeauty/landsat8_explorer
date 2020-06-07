@@ -4,11 +4,13 @@ from flask import Flask
 
 from controller.Search import searchApp
 from controller.Tile import tileApp
+from controller.S3Tile import s3tileApp
 
 app = Flask(__name__)
 
 app.register_blueprint(searchApp)
 app.register_blueprint(tileApp)
+app.register_blueprint(s3tileApp)
 
 @app.after_request
 def cors(environ):
